@@ -5,7 +5,7 @@ with open ( "README.md" , "r" ) as fh :
 
 setuptools . setup (
     name = "GetJsonValue" ,
-    version = "0.0.4" ,
+    version = "0.0.5" ,
     author = "Wanghao" ,
     author_email = "947001731@qq.com" ,
     description = "Gets the value in the JSON data" ,

@@ -9,32 +9,32 @@
 import json
 
 class jsonvalue(object):
-
+    __result_list = []
     @classmethod
     def get(cls,user_dict, objkey):
-        if cls._check_json_format(user_dict)[0]:
-            result_list = []
-            for k, v in cls._check_json_format(user_dict)[1].items():
-                # print k,v
+        r_tuple_msg = cls._check_json_format(user_dict)
+        if r_tuple_msg:
+            for k, v in r_tuple_msg[1].items():
                 if k == objkey:
-                    result_list.append(v)
+                    cls.__result_list.append(v)
                 elif type(v) is list:
                     for val in v:
                         if type(val) is dict:
                             for key, value in val.items():
-                                # print("%s:%s" % (key, value))
                                 if key == objkey:
-                                    result_list.append(value)
+                                    cls.__result_list.append(value)
                 else:
                     t = cls._check_json_format(v)
                     if t:
                         if t[0]:
                             if type(t[1]) is dict:
-                                ret = cls.get(t[1], objkey)
-                                result_list.append(ret)
-            if len(result_list) == 1:
-                return ''.join(result_list)
-            return result_list
+                                cls.get(t[1], objkey)
+            if len(cls.__result_list) == 1:
+                return ''.join(cls.__result_list)
+            elif len(cls.__result_list) < 1:
+                raise KeyError("Not found {}".format(objkey))
+            else:
+                return cls.__result_list
         else:
             raise ValueError("No JSON object could be decoded")
 
@@ -51,17 +51,3 @@ class jsonvalue(object):
             return True, raw_msg
         else:
             return False
-
-
-if __name__ == '__main__':
-    user_dict = {
-        "sites":
-            [
-                { "name":"菜鸟教程" , "url":"www.runoob.com" },
-                { "name":"google" , "url":"www.google.com" },
-                { "name":"微博" , "url":"www.weibo.com" }
-            ]
-    }
-
-    r = jsonvalue.get(user_dict,'url')
-    print(r)
