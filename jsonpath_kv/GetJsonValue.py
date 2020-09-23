@@ -1,10 +1,9 @@
 """
 #coding=utf-8
-@File    : jsonvalue.py
+@File    : GetJsonValue.py
 @Time    : 2020/9/12 14:04
 @Author  : wanghao
 @Email   : 947001731@qq.com
-@Software: PyCharm
 """
 import json
 
