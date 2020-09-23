@@ -1,11 +1,11 @@
 import setuptools
 
-with open ( "README.md" , "r" ) as fh :
+with open ( "README.md" , "r",encoding='UTF-8' ) as fh :
     long_description = fh.read()
 
 setuptools . setup (
-    name = "GetJsonValue" ,
-    version = "0.0.5" ,
+    name = "jsonpath-kv" ,
+    version = "0.0.6" ,
     author = "Wanghao" ,
     author_email = "947001731@qq.com" ,
     description = "Gets the value in the JSON data" ,
