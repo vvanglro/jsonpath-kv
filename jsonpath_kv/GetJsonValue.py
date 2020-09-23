@@ -34,10 +34,8 @@ class jsonvalue(object):
                                         for key, value in val.items():
                                             if key == objkey:
                                                 cls.__result_list.append(value)
-            if len(cls.__result_list) == 1:
-                return ''.join(cls.__result_list)
-            elif len(cls.__result_list) < 1:
-                raise KeyError("Not found {}".format(objkey))
+            if len(cls.__result_list) < 1:
+                return False
             else:
                 return cls.__result_list
         else:

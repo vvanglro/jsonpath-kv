@@ -5,7 +5,7 @@ with open ( "README.md" , "r",encoding='UTF-8' ) as fh :
 
 setuptools . setup (
     name = "jsonpath-kv" ,
-    version = "0.0.6" ,
+    version = "0.0.7" ,
     author = "Wanghao" ,
     author_email = "947001731@qq.com" ,
     description = "Gets the value in the JSON data" ,
