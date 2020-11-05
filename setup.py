@@ -11,7 +11,7 @@ setuptools . setup (
     description = "Gets the value in the JSON data" ,
     long_description = long_description,
     long_description_content_type='text/markdown',
-    url = "https://github.com/WangHaoz/GetJsonValue" ,
+    url = "https://github.com/WangHaoz/jsonpath-kv" ,
     packages = setuptools.find_packages(),
     classifiers = [
         "Programming Language :: Python :: 3" ,
